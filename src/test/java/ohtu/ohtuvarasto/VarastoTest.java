@@ -18,7 +18,7 @@ public class VarastoTest {
     @Test
     public void konstruktoriLuoTyhjanVaikkaTilavuusNegatiivinen() {
        varasto = new Varasto(-5);
-        assertEquals(1, varasto.getTilavuus(), vertailuTarkkuus);
+        assertEquals(0, varasto.getTilavuus(), vertailuTarkkuus);
     }
 
     @Test

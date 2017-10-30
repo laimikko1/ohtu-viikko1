@@ -19,7 +19,33 @@ public class VarastoTest {
     public void setUp() {
         varasto = new Varasto(10);
     }
+    
+    @Test
+    public void konstruktoriLuoTyhjanVaikkaTilavuusNegatiivinen() {
+        Varasto testiV = new Varasto(-5);
+        assertEquals(0, testiV.getTilavuus(), vertailuTarkkuus);
+    }
 
+    @Test
+    public void konstruktoriLuoTyhjanVaikkaTilavuusJaSaldoNegativiinen() {
+        Varasto testiV = new Varasto(-5, -5);
+        assertEquals(0, testiV.getSaldo(), vertailuTarkkuus);
+        assertEquals(0, testiV.getTilavuus(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void konstruktoriAsettaaSaldonldonKunYhtasuuriKuinTilavuus() {
+        varasto = new Varasto(5, 5);
+        assertEquals(5, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void saldoOnTilavuusKunSaldoIsompi() {
+        varasto = new Varasto(5, 10);
+        assertEquals(5, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    
     @Test
     public void konstruktoriLuoTyhjanVaraston() {
         assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);

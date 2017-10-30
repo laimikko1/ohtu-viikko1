@@ -1,14 +1,9 @@
 package ohtu.ohtuvarasto;
 
-import org.junit.*;
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class VarastoTest {
 
@@ -23,7 +18,7 @@ public class VarastoTest {
     @Test
     public void konstruktoriLuoTyhjanVaikkaTilavuusNegatiivinen() {
        varasto = new Varasto(-5);
-        assertEquals(0, varasto.getTilavuus(), vertailuTarkkuus);
+        assertEquals(1, varasto.getTilavuus(), vertailuTarkkuus);
     }
 
     @Test

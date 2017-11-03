@@ -8,30 +8,20 @@ public class Varasto {
 
     // --- konstruktorit: ---
     public Varasto(double tilavuus) {  // tilavuus on annettava
-        if (tilavuus > 0.0) {
-            this.tilavuus = tilavuus;
-        } else // virheellinen, nollataan
-        {
-            this.tilavuus = 0.0;  // => käyttökelvoton varasto
+        this.tilavuus = tilavuus;
+        if (this.tilavuus < 0.0) {
+            this.tilavuus = 0;
         }
         saldo = 0;     // oletus: varasto on tyhjä
     }
 
     public Varasto(double tilavuus, double alkuSaldo) { // kuormitetaan
-        if (tilavuus > 0.0) {
-            this.tilavuus = tilavuus;
-        } else // virheellinen, nollataan
-        {
-            this.tilavuus = 0.0;  // => käyttökelvoton varasto
+        this.saldo = Double.max(0, alkuSaldo);
+        this.tilavuus = Double.max(0, tilavuus);
+        if (this.saldo > this.tilavuus) {
+            this.saldo = this.tilavuus;
         }
-        if (alkuSaldo < 0.0) {
-            this.saldo = 0.0;
-        } else if (alkuSaldo <= tilavuus) // mahtuu
-        {
-            this.saldo = alkuSaldo;
-        } else {
-            this.saldo = tilavuus;  // täyteen ja ylimäärä hukkaan!
-        }
+
     }
 
     // --- ottavat aksessorit eli getterit: ---
@@ -73,6 +63,7 @@ public class Varasto {
         }
         // jos tänne päästään, kaikki pyydetty voidaan antaa
         saldo = saldo - maara;  // vähennetään annettava saldosta
+        // Tsekataan saldo vielä varmuudeksi
         return maara;
     }
 

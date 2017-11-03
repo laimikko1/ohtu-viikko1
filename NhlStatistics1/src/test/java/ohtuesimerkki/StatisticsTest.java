@@ -55,7 +55,7 @@ public class StatisticsTest {
         }
         
         @Test
-        public void CorrectAmountOfTopScorers() {
+        public void correctAmountOfTopScorers() {
             List<Player> scorers = stats.topScorers(1);
             Assert.assertEquals("Gretzky", scorers.get(0).getName());
         }

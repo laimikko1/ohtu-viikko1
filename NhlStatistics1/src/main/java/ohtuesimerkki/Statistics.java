@@ -40,7 +40,7 @@ public class Statistics {
         ArrayList<Player> topScorers = new ArrayList<Player>();
         Iterator<Player> playerIterator = players.iterator();
         int rajoite = howMany;
-        while (rajoite>=0) {
+        while (rajoite>0) {
             topScorers.add( playerIterator.next() );            
             rajoite--;
         }

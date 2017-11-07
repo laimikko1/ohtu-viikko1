@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class VarastoTest {
 
-    private static final Double testNumber = 10.0;
+    private static final Double largerTestnumber = 10.0;
     private static final Double negativeNumber = -5.0;
     private static final Double positiveTestnumber = 5.0;
     private static final Double veryLargeTestnumber = 20.0;
@@ -16,7 +16,7 @@ public class VarastoTest {
  
     @Before
     public void setUp() {
-        varasto = new Varasto(testNumber);
+        varasto = new Varasto(largerTestnumber);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class VarastoTest {
 
     @Test
     public void saldoOnTilavuusKunSaldoIsompi() {
-        varasto = new Varasto(positiveTestnumber, testNumber);
+        varasto = new Varasto(positiveTestnumber, largerTestnumber);
         assertEquals(positiveTestnumber, varasto.getSaldo(), vertailuTarkkuus);
     }
 
@@ -51,7 +51,7 @@ public class VarastoTest {
 
     @Test
     public void uudellaVarastollaOikeaTilavuus() {
-        assertEquals(testNumber, varasto.getTilavuus(), vertailuTarkkuus);
+        assertEquals(largerTestnumber, varasto.getTilavuus(), vertailuTarkkuus);
     }
 
     @Test
@@ -71,7 +71,7 @@ public class VarastoTest {
     @Test
     public void suuriLisaysTayttaaSaldon() {
         varasto.lisaaVarastoon(veryLargeTestnumber);
-        assertEquals(testNumber, varasto.getSaldo(), vertailuTarkkuus);
+        assertEquals(largerTestnumber, varasto.getSaldo(), vertailuTarkkuus);
 
     }
 
@@ -97,7 +97,7 @@ public class VarastoTest {
 
     @Test
     public void ottaminenPalauttaaOikeanMaaran() {
-        varasto.lisaaVarastoon(testNumber);
+        varasto.lisaaVarastoon(largerTestnumber);
 
         double saatuMaara = varasto.otaVarastosta(2);
 
@@ -111,7 +111,7 @@ public class VarastoTest {
         varasto.otaVarastosta(positiveTestnumber);
 
         // varastossa pitäisi olla tilaa 10 - 8 + 2 eli 4
-        assertEquals(testNumber, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+        assertEquals(largerTestnumber, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
 
     @Test

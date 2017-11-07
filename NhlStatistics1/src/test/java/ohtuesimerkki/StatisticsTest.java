@@ -65,6 +65,7 @@ public class StatisticsTest {
             List<Player> scorers = stats.topScorers(2);
             Assert.assertEquals("Gretzky", scorers.get(0).getName());
             Assert.assertEquals("Lemieux", scorers.get(1).getName());
+            Assert.assertEquals(2, scorers.size());
         }
     
 }    
